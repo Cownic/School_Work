@@ -5,6 +5,8 @@ char CheckPassword()
 {
   char good = 'N';
   char Password[2]; // Buffer overflow attack here
+  printf("Address of Password[2] :%p\n", Password);
+  printf("Address of good: %p\n", &good);
   gets(Password);
   return good;
 }
@@ -12,6 +14,7 @@ char CheckPassword()
 int main(int argc, char* argv[])
 {
   printf("Enter your password:");
+  
   if(CheckPassword() == 'Y')
   {
     printf("Your random number is %d\n", rand()%100);
